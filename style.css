@@ -1,0 +1,90 @@
+/* ==========================================================================
+   1. Base Reset & Table Setup
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #1e3f20;
+    /* A classic ping pong table green */
+    overflow: hidden;
+    /* Prevents scrollbars during collisions */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 20px solid rgba(153, 169, 243, 0.182);
+}
+
+/* ==========================================================================
+   2. Ping Pong Balls (Objects 1 & 2)
+   ========================================================================== */
+#red-object,
+#blue-object {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    /* Centered vertically by default */
+    transform: translateY(50%);
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Gives them a 3D spherical look */
+}
+
+/* Red Ball - Starting on the left */
+#red-object {
+    background-color: #ff4757;
+    left: 20%;
+}
+
+/* Blue Ball - Starting on the right */
+#blue-object {
+    background-color: #2ed573;
+    /* Using a nice bright green/blue for high contrast */
+    right: 20%;
+}
+
+/* ==========================================================================
+   3. Floating Reset Button
+   ========================================================================== */
+#reset-button {
+    position: fixed;
+    bottom: 30px;
+    /* Distance from the bottom of the screen */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Perfectly centers the button horizontally */
+
+    /* Styling */
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #2f3542;
+    border: 2px solid #ffffff;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease-in-out;
+    z-index: 10;
+    /* Ensures it stays on top of the balls */
+}
+
+/* Hover effect for the button */
+#reset-button:hover {
+    background-color: #ffffff;
+    color: #2f3542;
+    transform: translateX(-50%) translateY(-2px);
+    /* Makes it look like it lifts up */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Active click effect */
+#reset-button:active {
+    transform: translateX(-50%) translateY(1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
